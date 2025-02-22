@@ -4,8 +4,8 @@ export const getAllCurrenciesController = async (req, res) => {
   try {
     const currencies = await Currency.find();
     !currencies ?
-      res.status(404).json({ message: 'No currencies found', currencies: {} }) :
-      res.status(200).json({ message: 'Currency controller', currencies });
+      res.status(404).json({ message: 'No currencies found' }) :
+      res.status(200).json({ currencies });
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
   }
@@ -46,3 +46,4 @@ export const deleteCurrencyController = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
+
