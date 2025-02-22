@@ -1,8 +1,8 @@
 import express from 'express';
-import { currencyController } from '../controllers/currency.controller.js';
+import { getAllCurrenciesController } from '../controllers/currency.controller.js';
 
 const router = express.Router();
 
-router.get('/', currencyController);
+router.get('/', getAllCurrenciesController);
 
 export default router;
