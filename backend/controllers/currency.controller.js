@@ -14,3 +14,27 @@ export const getAllCurrenciesController = async (req, res) => {
     await mongodbDisconnect();
   }
 };
+
+export const createCurrencyController = async (req, res) => {
+  try {
+    const currency = req.body;
+
+    if (!currency) {
+      return res.status(400).json({ message: 'Invalid request' });
+    };
+    if (!currency.nameShort || !currency.nameFull || !currency.exchangeRateToOneUSD) {
+      return res.status(400).json({ message: 'Invalid request' });
+    };
+
+    const newCurrency = new Currency(currency);
+
+    await mongodbConnect()
+    await newCurrency.save();
+
+    res.status(201).json({ message: 'Currency created successfully', currency: newCurrency });
+  } catch (error) {
+    res.status(500).json({ message: `Server Error: ${error.message}` });
+  } finally {
+    await mongodbDisconnect();
+  }
+};
