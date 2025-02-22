@@ -29,3 +29,23 @@ export const createCurrencyController = async (req, res) => {
     res.status(500).json({ message: `Server Error: ${error.message}` });
   }
 };
+
+export const deleteCurrencyController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ message: 'Invalid request' });
+    };
+
+    const deleted = await Currency.findByIdAndDelete(id);
+
+    if (!deleted) {
+      return res.status(404).json({ message: 'Currency not found' });
+    };
+
+    res.status(200).json({ message: 'Currency deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
