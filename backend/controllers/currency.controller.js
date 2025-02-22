@@ -15,9 +15,6 @@ export const createCurrencyController = async (req, res) => {
   try {
     const currency = req.body;
 
-    if (!currency) {
-      return res.status(400).json({ message: 'Invalid request' });
-    };
     if (!currency.nameShort || !currency.nameFull || !currency.country || !currency.exchangeRateToOneUSD) {
       return res.status(400).json({ message: 'Invalid request' });
     };
