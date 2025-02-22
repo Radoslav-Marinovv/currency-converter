@@ -1,15 +1,23 @@
 import mongoose from "mongoose";
 
 const currencySchema = new mongoose.Schema({
-  name: {
+  nameShort: {
     type: String,
     required: true,
     unique: true,
+  },
+  nameFull: {
+    type: String,
+    required: true,
   },
   exchangeRateToOneUSD: {
     type: Number,
     required: true,
   },
+  countryFlag: {
+    type: String,
+    required: false,
+  }
 }, {
   timestamps: true
 });
