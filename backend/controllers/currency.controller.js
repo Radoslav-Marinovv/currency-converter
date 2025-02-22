@@ -22,7 +22,7 @@ export const createCurrencyController = async (req, res) => {
     if (!currency) {
       return res.status(400).json({ message: 'Invalid request' });
     };
-    if (!currency.nameShort || !currency.nameFull || !currency.exchangeRateToOneUSD) {
+    if (!currency.nameShort || !currency.nameFull || currency.country || !currency.exchangeRateToOneUSD) {
       return res.status(400).json({ message: 'Invalid request' });
     };
 
@@ -38,3 +38,4 @@ export const createCurrencyController = async (req, res) => {
     await mongodbDisconnect();
   }
 };
+
