@@ -47,3 +47,18 @@ export const deleteCurrencyController = async (req, res) => {
   }
 };
 
+export const updateCurrencyController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const incomingUpdate = req.body;
+
+    if (!id || !incomingUpdate) {
+      return res.status(400).json({ message: 'Invalid request' });
+    }
+
+    await Currency.findByIdAndUpdate(id, incomingUpdate);
+    res.status(200).json({ message: 'Currency updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
