@@ -13,7 +13,14 @@ function App() {
         { index: true, element: <HomePage /> },
       ],
       errorElement: <ErrorNotFoundPage />
-    },
+    }, {
+      path: '/404',
+      element: <Layout />,
+      children: [{
+        index: true, element: <ErrorNotFoundPage />
+      }],
+
+    }
   ])
   return (
     <RouterProvider router={router} />
