@@ -54,9 +54,14 @@ export const updateCurrencyController = async (req, res) => {
 
     if (!id || !incomingUpdate) {
       return res.status(400).json({ message: 'Invalid request' });
-    }
+    };
 
-    await Currency.findByIdAndUpdate(id, incomingUpdate);
+    const updated = await Currency.findByIdAndUpdate(id, incomingUpdate);
+
+    if (!updated) {
+      return res.status(404).json({ message: 'Currency not found' });
+    };
+
     res.status(200).json({ message: 'Currency updated successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
