@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../../state/store"
 import { useEffect } from "react";
 import { CurrencyState, getInitialState } from "../../../state/currency/currencySlice";
-import { shouldUpdate } from "../../../helper/date/date.helper";
+import { setStoreCurrentTime, shouldUpdate } from "../../../helper/date/date.helper";
+import { TIME_TO_UPDATE_IN_MS } from "../../../constants/constants";
 
 const HomePage = () => {
 
@@ -12,8 +13,16 @@ const HomePage = () => {
   useEffect(() => {
     if (shouldUpdate() || !currencies.length) {
       dispatch(getInitialState());
+      setStoreCurrentTime();
     }
-  }, [dispatch]);
+
+    const interval = setInterval(() => {
+      dispatch(getInitialState());
+      setStoreCurrentTime();
+    }, TIME_TO_UPDATE_IN_MS);
+
+    return () => clearInterval(interval);
+  }, [dispatch, currencies.length]);
 
   return (
     <div className="flex flex-col gap-4 text-center">
