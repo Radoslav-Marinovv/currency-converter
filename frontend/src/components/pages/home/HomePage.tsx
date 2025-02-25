@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../../state/store"
 import { useEffect } from "react";
 import { CurrencyState, getInitialState } from "../../../state/currency/currencySlice";
+import { shouldUpdate } from "../../../helper/date/date.helper";
 
 const HomePage = () => {
 
@@ -9,7 +10,9 @@ const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(getInitialState());
+    if (shouldUpdate() || !currencies.length) {
+      dispatch(getInitialState());
+    }
   }, [dispatch]);
 
   return (
