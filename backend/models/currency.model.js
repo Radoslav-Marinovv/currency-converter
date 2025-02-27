@@ -10,10 +10,6 @@ const currencySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  country: {
-    type: String,
-    required: true,
-  },
   exchangeRateToOneUSD: {
     type: Number,
     required: true,
