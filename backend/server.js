@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import { mongodbConnect } from './config/db.js';
 import currencyRoutes from './routes/currency.route.js';
+import getCurrencyData from './services/getCurrencyData.service.js';
 
 dotenv.config();
 
@@ -18,7 +19,9 @@ app.use(express.json());
 app.use('/api/currency', currencyRoutes);
 
 app.listen(PORT, () => {
+  const serverStarted = new Date().toLocaleTimeString();
   mongodbConnect();
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`${serverStarted}: Server is running on port ${PORT}`);
 });
 
+getCurrencyData();
