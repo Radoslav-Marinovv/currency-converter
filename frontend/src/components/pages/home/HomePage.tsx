@@ -41,6 +41,7 @@ const HomePage = () => {
 
       <section className="rounded-2xl shadow-accent-content shadow-2xl">
         <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
+        <p className="text-xl">Base: USD</p>
         <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
           {
             top10Currencies.length > 0 ? top10Currencies.map((currency: CurrencyState) => {
