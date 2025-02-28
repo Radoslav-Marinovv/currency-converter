@@ -5,7 +5,6 @@ export interface CurrencyState {
   _id: string;
   nameShort: string;
   nameFull: string;
-  country: string;
   exchangeRateToOneUSD: number;
   countryFlag: string;
   createdAt: string;
