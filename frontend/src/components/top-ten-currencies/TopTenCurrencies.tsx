@@ -1,25 +1,24 @@
-import { useState } from "react";
 import { BASE_CURRENCY } from "../../constants/constants";
+
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
+import { ExchangeState } from "../../state/exchange/exchangeSlice";
 import { CurrencyState } from "../../state/currency/currencySlice";
+
 import Loading from "../loading/Loading";
 
 type TopTenCurrenciesProps = {
   currencies: CurrencyState[];
 };
 
-type ExchangeAmountType = {
-  [_id: string]: number;
-};
-
 const TopTenCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
-  const [exchangeAmount, setExchangeAmount] = useState<ExchangeAmountType>({});
+
+  const exchangeRates: ExchangeState = useSelector((state: RootState) => state.exchange || {});
+  const dispatch = useDispatch<AppDispatch>();
 
   function handleValueChange(e: React.ChangeEvent<HTMLInputElement>, id: string) {
     e.preventDefault();
-    setExchangeAmount((prev) => ({
-      ...prev,
-      [id]: parseFloat(e.target.value)
-    }));
+    dispatch({ type: 'exchange/setExchangeRate', payload: { id, value: e.target.value } });
   }
   return (
     <section className="rounded-2xl shadow-accent-content shadow-2xl">
@@ -38,10 +37,10 @@ const TopTenCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
                   <label className="text-lg">
                     {BASE_CURRENCY.toString()} to {currency.nameShort}
                   </label>
-                  <input type="number" min={0} placeholder={BASE_CURRENCY.toString()} value={exchangeAmount[currency._id] || ''} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleValueChange(e, currency._id)} className="w-20 h-8 text-center" />
+                  <input type="number" min={0} placeholder={BASE_CURRENCY.toString()} value={exchangeRates[currency._id] || ''} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleValueChange(e, currency._id)} className="w-20 h-8 text-center" />
                 </div>
                 <div className="flex flex-col justify-center text-xl">
-                  {exchangeAmount[currency._id] ? `${(exchangeAmount[currency._id] * currency.exchangeRateToOneUSD).toFixed(2)} ${currency.nameShort}` : ''}
+                  {exchangeRates[currency._id] ? `${(exchangeRates[currency._id] * currency.exchangeRateToOneUSD).toFixed(2)} ${currency.nameShort}` : ''}
                 </div>
               </li>
             )
