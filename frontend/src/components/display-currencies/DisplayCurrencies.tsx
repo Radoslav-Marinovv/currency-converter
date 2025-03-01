@@ -1,4 +1,4 @@
-import { BASE_CURRENCY } from "../../constants/constants";
+import { BASE_CURRENCY, BASE_CURRENCY_TEXT } from "../../constants/constants";
 
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
@@ -22,8 +22,8 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
     dispatch({ type: 'exchange/setExchangeRate', payload: { id, value: e.target.value } });
   }
   return (
-    <section className="rounded-2xl shadow-accent-content shadow-2xl">
-      <p className="text-xl text-center">Base: {BASE_CURRENCY}</p>
+    <section className="rounded-2xl shadow-accent-content shadow-2xl min-h-96">
+      <p className="text-xl text-center">{BASE_CURRENCY_TEXT}{BASE_CURRENCY}</p>
       <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
         {
           Array.isArray(currencies) && currencies.length > 0 ? currencies.map((currency: CurrencyState) => {
