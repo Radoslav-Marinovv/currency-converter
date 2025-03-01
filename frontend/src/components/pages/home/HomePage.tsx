@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { RootState } from "../../../state/store"
 import { CurrencyState } from "../../../state/currency/currencySlice";
 
-import TopTenCurrencies from "../../top-ten-currencies/TopTenCurrencies";
+import DisplayCurrencies from "../../DisplayCurrencies/DisplayCurrencies";
 
 const HomePage = () => {
   const currencies: CurrencyState[] = useSelector((state: RootState) => state.currencies || []);
@@ -22,7 +22,8 @@ const HomePage = () => {
       <h1 className="text-4xl">Currency Converter</h1>
       <p className="text-2xl text-warning">NON COMMERCIAL PROJECT - USED FOR EDUCATIONAL PURPOSES ONLY</p>
       <p className="text-2xl">API used:  <Link to={'https://freecurrencyapi.com/'} target="_blank" rel="noopener noreferrer">https://freecurrencyapi.com/</Link></p>
-      <TopTenCurrencies currencies={topTenCurrencies} />
+      <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
+      <DisplayCurrencies currencies={topTenCurrencies} />
     </div >
   )
 }
