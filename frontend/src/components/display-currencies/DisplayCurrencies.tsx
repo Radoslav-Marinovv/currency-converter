@@ -6,6 +6,7 @@ import { ExchangeState } from "../../state/exchange/exchangeSlice";
 import { CurrencyState } from "../../state/currency/currencySlice";
 
 import Loading from "../loading/Loading";
+import NoCurrencies from "../no-currencies/NoCurrencies";
 
 type TopTenCurrenciesProps = {
   currencies: CurrencyState[] | null;
@@ -43,7 +44,7 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
                 </div>
               </li>
             )
-          }) : Array.isArray(currencies) ? <Loading /> : 'no currencies'
+          }) : Array.isArray(currencies) ? <Loading /> : <NoCurrencies />
         }
       </ul>
     </section>
