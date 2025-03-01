@@ -22,8 +22,7 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
   }
   return (
     <section className="rounded-2xl shadow-accent-content shadow-2xl">
-      <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
-      <p className="text-xl">Base: {BASE_CURRENCY}</p>
+      <p className="text-xl text-center">Base: {BASE_CURRENCY}</p>
       <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
         {
           Array.isArray(currencies) && currencies.length > 0 ? currencies.map((currency: CurrencyState) => {

@@ -8,7 +8,7 @@ const MyListPage = () => {
   const currencies = useSelector((state: RootState) => state.currencies || {});
 
   return (
-    <div className="flex flex-col gap-4 text-center">
+    <div className="flex flex-col gap-4 ">
       <h1 className="flex flex-col text-3xl p-3">My List</h1>
       <DisplayCurrencies currencies={getMyList(currencies)} />
     </div>

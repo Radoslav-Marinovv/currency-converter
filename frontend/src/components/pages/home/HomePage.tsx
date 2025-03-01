@@ -18,10 +18,10 @@ const HomePage = () => {
   });
 
   return (
-    <div className="flex flex-col gap-4 text-center">
-      <h1 className="text-4xl">Currency Converter</h1>
-      <p className="text-2xl text-warning">NON COMMERCIAL PROJECT - USED FOR EDUCATIONAL PURPOSES ONLY</p>
-      <p className="text-2xl">API used:  <Link to={'https://freecurrencyapi.com/'} target="_blank" rel="noopener noreferrer">https://freecurrencyapi.com/</Link></p>
+    <div className="flex flex-col gap-4">
+      <h1 className="text-4xl text-center">Currency Converter</h1>
+      <p className="text-2xl text-warning text-center">NON COMMERCIAL PROJECT - USED FOR EDUCATIONAL PURPOSES ONLY</p>
+      <p className="text-2xl text-center">API used:  <Link to={'https://freecurrencyapi.com/'} target="_blank" rel="noopener noreferrer">https://freecurrencyapi.com/</Link></p>
       <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
       <DisplayCurrencies currencies={topTenCurrencies} />
     </div >
