@@ -35,9 +35,9 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <label className="text-lg">
-                    {BASE_CURRENCY.toString()} to {currency.nameShort}
+                    {BASE_CURRENCY} to {currency.nameShort}
                   </label>
-                  <input type="number" min={0} placeholder={BASE_CURRENCY.toString()} value={exchangeRates[currency._id] || ''} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleValueChange(e, currency._id)} className="w-20 h-8 text-center" />
+                  <input type="number" min={0} placeholder={BASE_CURRENCY} value={exchangeRates[currency._id] || ''} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleValueChange(e, currency._id)} className="w-20 h-8 text-center" />
                 </div>
                 <div className="flex flex-col justify-center text-xl">
                   {exchangeRates[currency._id] ? `${(exchangeRates[currency._id] * currency.exchangeRateToOneUSD).toFixed(2)} ${currency.nameShort}` : ''}
