@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../state/store";
 
-import DisplayCurrencies from "../../DisplayCurrencies/DisplayCurrencies";
+import DisplayCurrencies from "../../display-currencies/DisplayCurrencies";
 import { getMyList } from "../../../helper/local-storage/localStorage.helper";
 
 const MyListPage = () => {
