@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import Layout from "./components/layout/Layout"
 import HomePage from "./components/pages/home/HomePage"
 import ErrorNotFoundPage from "./components/pages/error/ErrorNotFoundPage"
+import MyListPage from "./components/pages/my-list/MyListPage"
 
 function App() {
 
@@ -11,15 +12,10 @@ function App() {
       element: <Layout />,
       children: [
         { index: true, element: <HomePage /> },
+        { path: '/my-list', element: <MyListPage /> },
+        { path: '*', element: <ErrorNotFoundPage /> }
       ],
       errorElement: <ErrorNotFoundPage />
-    }, {
-      path: '/404',
-      element: <Layout />,
-      children: [{
-        index: true, element: <ErrorNotFoundPage />
-      }],
-
     }
   ])
   return (
