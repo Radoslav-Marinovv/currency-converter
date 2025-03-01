@@ -8,7 +8,7 @@ import { CurrencyState } from "../../state/currency/currencySlice";
 import Loading from "../loading/Loading";
 
 type TopTenCurrenciesProps = {
-  currencies: CurrencyState[];
+  currencies: CurrencyState[] | null;
 };
 
 const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
@@ -22,10 +22,11 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
   }
   return (
     <section className="rounded-2xl shadow-accent-content shadow-2xl">
+      <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
       <p className="text-xl">Base: {BASE_CURRENCY}</p>
       <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
         {
-          currencies.length > 0 ? currencies.map((currency: CurrencyState) => {
+          Array.isArray(currencies) && currencies.length > 0 ? currencies.map((currency: CurrencyState) => {
             return (
               <li key={currency._id} className="grid grid-cols-1 gap-4 md:grid-cols-3 align-middle odd:bg-base-200 even:bg-base-100 p-2 m-2 rounded-2xl shadow-accent-content shadow-2xl">
                 <div className="flex flex-row items-center px-2 gap-2">
@@ -43,7 +44,7 @@ const DisplayCurrencies = ({ currencies }: TopTenCurrenciesProps) => {
                 </div>
               </li>
             )
-          }) : <Loading />
+          }) : Array.isArray(currencies) ? <Loading /> : 'no currencies'
         }
       </ul>
     </section>
