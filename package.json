@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon backend/server.js",
-    "build": "npm run build --prefix frontend",
+    "build": "echo 'No build step required for backend'",
     "start": "node backend/server.js"
   },
   "keywords": [],
