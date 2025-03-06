@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 import { mongodbConnect } from './config/db.js';
 import currencyRoutes from './routes/currency.route.js';
