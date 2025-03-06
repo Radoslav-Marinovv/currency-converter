@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development nodemon backend/server.js",
-    "install": "npm install && npm install --prefix frontend",
+    "install": "npm install",
     "build": "npm run build --prefix frontend",
     "start": "npm run build && NODE_ENV=production node backend/server.js"
   },
