@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./backend/server.js",
-    "buildvercel": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "buildvercel": "npm install ./frontend && npm run build ./frontend",
     "start": "node ./backend/server.js"
   },
   "keywords": [],
