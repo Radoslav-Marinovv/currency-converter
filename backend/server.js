@@ -14,7 +14,7 @@ const __dirname = path.resolve();
 const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || 'http://localhost:5173';
 
-app.use(cors({ origin: ORIGIN }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/api/currency', currencyRoutes);
