@@ -5,13 +5,18 @@
       "src": "./backend/server.js",
       "use": "@vercel/node",
       "config": {
-        "distDir": "./dist",
-        "buildCommand": "npm run build"
+        "distDir": "./",
+        "installCommand": "npm install"
       }
     },
     {
       "src": "./frontend",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "./frontend/dist",
+        "installCommand": "npm install",
+        "buildCommand": "npm run build"
+      }
     }
   ],
   "routes": [
