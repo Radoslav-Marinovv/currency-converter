@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./backend/server.js",
-    "build": "npm install && cd ./frontend && npm install && npm run build",
-    "start": "node ./backend/server.js"
+    "build": "npm install && npm --prefix ./frontend install && npm --prefix ./frontend run build",
+    "start": "node ./backend/server.js",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "",
