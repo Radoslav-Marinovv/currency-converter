@@ -17,10 +17,11 @@ app.use(express.json());
 
 app.use('/api/currency', currencyRoutes);
 
+const serverStarted = new Date().toLocaleTimeString();
+
 if (process.env.NODE_ENV === 'development') {
-  app.listen(PORT, async () => {
-    const serverStarted = new Date().toLocaleTimeString();
-    await mongodbConnect();
+  app.listen(PORT, () => {
+    mongodbConnect();
     console.log(`${serverStarted}: Server is running in Development on port ${PORT}`);
   });
 } else {
