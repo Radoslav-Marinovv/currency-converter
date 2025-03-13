@@ -46,7 +46,7 @@ jobs:
           folder: frontend/dist
 
       - name: Start Server
-        run: node backend/server.js
+        run: npm run start
         env:
           NODE_ENV: ${{ secrets.NODE_ENV }}
           MONGO_URI: ${{ secrets.MONGO_URI }}
