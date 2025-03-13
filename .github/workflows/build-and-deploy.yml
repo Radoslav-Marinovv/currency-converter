@@ -35,9 +35,12 @@ jobs:
           CURRENCY_API_KEY: ${{ secrets.CURRENCY_API_KEY }}
           CURRENCY_API_URL: ${{ secrets.CURRENCY_API_URL }}
 
+      - name: Change directory back to root
+        run: cd ..
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
           branch: gh-pages
-          folder: dist
+          folder: frontend/dist
