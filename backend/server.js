@@ -13,13 +13,14 @@ const app = express();
 const __dirname = path.resolve();
 const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || '';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.use(cors({ origin: ORIGIN }));
 app.use(express.json());
 
 app.use('/api/currency', currencyRoutes);
 
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/dist')));
   app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
