@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 import Currency from "../models/currency.model.js";
 
 dotenv.config();
-const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY || 'NO_API_KEY';
-const CURRENCY_API_URL = process.env.CURRENCY_API_URL || 'NO_API_URL';
+const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY || '';
+const CURRENCY_API_URL = process.env.CURRENCY_API_URL || '';
 
 const getNewCurrencyDataFromAPI = async () => {
   try {
