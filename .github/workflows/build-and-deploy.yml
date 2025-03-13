@@ -44,3 +44,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
           branch: gh-pages
           folder: frontend/dist
+
+      - name: Start Server
+        run: node backend/server.js
+        env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
