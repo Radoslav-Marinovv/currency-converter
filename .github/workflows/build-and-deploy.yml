@@ -24,17 +24,17 @@ jobs:
       - name: Change directory
         run: cd frontend
 
-      - name: Install Vite/React dependencies
+      - name: Install Vite and React dependencies
         run: npm install
 
       - name: Build 🔧
         run: npm run build
         env:
-        MONGO_URI: ${{ secrets.MONGO_URI }}
-        PORT: ${{ secrets.PORT }}
-        ORIGIN: ${{ secrets.ORIGIN }}
-        CURRENCY_API_KEY: ${{ secrets.CURRENCY_API_KEY }}
-        CURRENCY_API_URL: ${{ secrets.CURRENCY_API_URL }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          PORT: ${{ secrets.PORT }}
+          ORIGIN: ${{ secrets.ORIGIN }}
+          CURRENCY_API_KEY: ${{ secrets.CURRENCY_API_KEY }}
+          CURRENCY_API_URL: ${{ secrets.CURRENCY_API_URL }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
