@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import path from 'path';
 
 import { mongodbConnect } from './config/db.js';
 import currencyRoutes from './routes/currency.route.js';
@@ -10,26 +9,13 @@ import getCurrencyData from './services/getCurrencyData.service.js';
 dotenv.config();
 
 const app = express();
-const __dirname = path.resolve();
 const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || '';
-const NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.use(cors({ origin: ORIGIN }));
 app.use(express.json());
 
 app.use('/api/currency', currencyRoutes);
-
-if (NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/dist')));
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
-  );
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running...');
-  });
-}
 
 app.listen(PORT, async () => {
   const serverStarted = new Date().toLocaleTimeString();

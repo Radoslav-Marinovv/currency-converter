@@ -5,9 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./backend/server.js",
+    "dev": "nodemon ./api/server.js",
     "build": "npm install && cd frontend && npm install && npm run build && cd ..",
-    "start": "node ./backend/server.js"
+    "start": "node ./api/server.js"
   },
   "keywords": [],
   "author": "",
