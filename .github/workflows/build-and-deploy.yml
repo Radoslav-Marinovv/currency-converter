@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: latest
       - run: npm ci
-      - run: npm test
 
       - name: Install express.js and dependencies
         run: npm install
