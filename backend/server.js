@@ -31,9 +31,9 @@ if (NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   const serverStarted = new Date().toLocaleTimeString();
-  mongodbConnect();
+  await mongodbConnect();
   console.log(`${serverStarted}: Server is running on port ${PORT}`);
 });
 
