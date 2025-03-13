@@ -49,3 +49,8 @@ jobs:
         run: node backend/server.js
         env:
           NODE_ENV: ${{ secrets.NODE_ENV }}
+          MONGO_URI: mongodb+srv://radoslavmarinov89:9C6uCLSCKvi10Efj@cluster0.savju.mongodb.net/currencies?retryWrites=true&w=majority&appName=Cluster0
+          PORT: ${{ secrets.PORT }}
+          ORIGIN: ${{ secrets.ORIGIN }}
+          CURRENCY_API_KEY: ${{ secrets.CURRENCY_API_KEY }}
+          CURRENCY_API_URL: ${{ secrets.CURRENCY_API_URL }}
