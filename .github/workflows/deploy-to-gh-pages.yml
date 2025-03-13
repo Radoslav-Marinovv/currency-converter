@@ -21,11 +21,14 @@ jobs:
       - name: Install express.js and dependencies
         run: npm install
 
+      - name: Change directory
+        run: cd frontend
+
       - name: Install Vite/React dependencies
-        run: npm install frontend
+        run: npm install
 
       - name: Build 🔧
-        run: npm run build frontend
+        run: npm run build
 
         env:
         MONGO_URI: ${{ secrets.MONGO_URI }}
@@ -36,7 +39,3 @@ jobs:
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
-          branch: gh-pages
-          folder: dist
