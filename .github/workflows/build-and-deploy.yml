@@ -29,7 +29,6 @@ jobs:
 
       - name: Build 🔧
         run: npm run build
-
         env:
         MONGO_URI: ${{ secrets.MONGO_URI }}
         PORT: ${{ secrets.PORT }}
