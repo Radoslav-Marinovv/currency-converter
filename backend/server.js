@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const __dirname = path.resolve();
-const PORT = process.env.PORT || '';
+const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || '';
 
 app.use(cors({ origin: ORIGIN }));
