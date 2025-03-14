@@ -8,8 +8,6 @@ import getCurrencyData from './services/getCurrencyData.service.js';
 
 dotenv.config();
 
-console.log('safe env test:', process.env.ORIGIN);
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || '';
