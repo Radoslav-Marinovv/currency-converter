@@ -8,6 +8,8 @@ import getCurrencyData from './services/getCurrencyData.service.js';
 
 dotenv.config();
 
+console.log('safe env test:', process.env.ORIGIN);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const ORIGIN = process.env.ORIGIN || '';
@@ -20,12 +22,12 @@ app.use('/api/currency', currencyRoutes);
 const serverStarted = new Date().toLocaleTimeString();
 
 if (process.env.NODE_ENV === 'development') {
-  app.listen(PORT, () => {
-    mongodbConnect();
+  app.listen(PORT, async () => {
+    await mongodbConnect();
     console.log(`${serverStarted}: Server is running in Development on port ${PORT}`);
   });
 } else {
-  mongodbConnect();
+  await mongodbConnect();
   console.log(`${serverStarted}: Server is running in Production on port ${PORT}`);
 }
 
