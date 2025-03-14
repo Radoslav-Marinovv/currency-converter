@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./api/server.js",
-    "build": "cd frontend && npm install && npm run build",
     "build-dev": "npm install && cd frontend && npm install && npm run build && cd .."
   },
   "keywords": [],
