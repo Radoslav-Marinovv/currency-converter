@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config();
+const __dirname = path.resolve();
+
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const MONGO_URI = process.env.MONGO_URI || '';
+
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
 export const mongodbConnect = async () => {

@@ -1,12 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 import { mongodbConnect } from './config/db.js';
 import currencyRoutes from './routes/currency.route.js';
 import getCurrencyData from './services/getCurrencyData.service.js';
 
-dotenv.config();
+const __dirname = path.resolve();
+
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,12 +23,12 @@ app.use('/api/currency', currencyRoutes);
 const serverStarted = new Date().toLocaleTimeString();
 
 if (process.env.NODE_ENV === 'development') {
-  app.listen(PORT, async () => {
-    await mongodbConnect();
+  app.listen(PORT, () => {
+    mongodbConnect();
     console.log(`${serverStarted}: Server is running in Development on port ${PORT}`);
   });
 } else {
-  await mongodbConnect();
+  mongodbConnect();
   console.log(`${serverStarted}: Server is running in Production on port ${PORT}`);
 }
 

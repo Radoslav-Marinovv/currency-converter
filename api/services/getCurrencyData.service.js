@@ -1,10 +1,14 @@
 // NON COMMERCIAL PROJECT - USED FOR EDUCATIONAL PURPOSES ONLY
 
-import { CURRENCY_CODES, INTERVAL_TIME_IN_MS_TWO_HOURS } from "../constants/constants.js";
 import dotenv from 'dotenv';
+import path from 'path';
 import Currency from "../models/currency.model.js";
+import { CURRENCY_CODES, INTERVAL_TIME_IN_MS_TWO_HOURS } from "../constants/constants.js";
 
-dotenv.config();
+const __dirname = path.resolve();
+
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
 const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY || '';
 const CURRENCY_API_URL = process.env.CURRENCY_API_URL || '';
 
