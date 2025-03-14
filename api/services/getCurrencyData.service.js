@@ -7,7 +7,9 @@ import { CURRENCY_CODES, INTERVAL_TIME_IN_MS_TWO_HOURS } from "../constants/cons
 
 const __dirname = path.resolve();
 
-dotenv.config({ path: path.join(__dirname, '../.env') });
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '../.env') });
+}
 
 const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY || '';
 const CURRENCY_API_URL = process.env.CURRENCY_API_URL || '';

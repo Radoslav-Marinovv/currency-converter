@@ -4,7 +4,9 @@ import path from 'path';
 
 const __dirname = path.resolve();
 
-dotenv.config({ path: path.join(__dirname, '../.env') });
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '../.env') });
+}
 
 const MONGO_URI = process.env.MONGO_URI || '';
 
