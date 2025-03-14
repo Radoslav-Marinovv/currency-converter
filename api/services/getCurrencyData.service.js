@@ -20,7 +20,7 @@ const getNewCurrencyDataFromAPI = async () => {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
-        'X-Content-Type-Options': 'nosniff',
+        'x-content-type-options': 'nosniff',
         "apikey": CURRENCY_API_KEY,
       },
     });

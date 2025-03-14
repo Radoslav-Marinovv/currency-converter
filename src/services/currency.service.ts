@@ -11,7 +11,7 @@ const fetchCurrencyData = async () =>
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'X-Content-Type-Options': 'nosniff',
+      'x-content-type-options': 'nosniff',
       'Access-Control-Allow-Origin': `${SERVER_API_URL}`,
     },
   });
