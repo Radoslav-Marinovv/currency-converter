@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
     console.log(`${serverStarted}: Server is running in Development on port ${PORT}`);
   });
 } else {
-  await mongodbConnect();
+  mongodbConnect();
   console.log(`${serverStarted}: Server is running in Production on port ${PORT}`);
 }
 
