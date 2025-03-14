@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || '';
 const ORIGIN = process.env.ORIGIN || '';
 
 app.use(cors({ origin: ORIGIN }));
