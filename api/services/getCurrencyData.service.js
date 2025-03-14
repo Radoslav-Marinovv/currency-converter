@@ -19,7 +19,7 @@ const getNewCurrencyDataFromAPI = async () => {
     const response = await fetch(CURRENCY_API_URL, {
       method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
         'x-content-type-options': 'nosniff',
         "apikey": CURRENCY_API_KEY,
       },

@@ -10,9 +10,9 @@ const fetchCurrencyData = async () =>
   fetch(`${SERVER_API_URL}/api/currency`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      'content-type': 'application/json',
       'x-content-type-options': 'nosniff',
-      'Access-Control-Allow-Origin': `${SERVER_API_URL}`,
+      'access-control-allow-origin': `${SERVER_API_URL}`,
     },
   });
 
