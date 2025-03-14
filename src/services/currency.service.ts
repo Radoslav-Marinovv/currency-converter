@@ -4,8 +4,7 @@ type CurrencyType = {
   currencies: CurrencyState[];
 };
 
-const SERVER_API_URL =
-  import.meta.env.VITE_SERVER_API_URL || 'http://localhost:5000';
+const SERVER_API_URL = import.meta.env.VITE_SERVER_API_URL || '';
 
 const fetchCurrencyData = async () =>
   fetch(`${SERVER_API_URL}/api/currency`, {
