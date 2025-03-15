@@ -21,6 +21,18 @@
     {
       "src": "/(.*)",
       "dest": "dist/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/my-app",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/*",
+      "dest": "dist/index.html"
     }
   ]
 }
