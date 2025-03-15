@@ -19,11 +19,7 @@
       "dest": "/api/server.js"
     },
     {
-      "src": "/my-app",
-      "dest": "dist/index.html"
-    },
-    {
-      "src": "/*",
+      "src": "/(.*)",
       "dest": "dist/index.html"
     }
   ]
