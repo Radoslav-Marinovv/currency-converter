@@ -15,7 +15,7 @@
   ],
   "rewrites": [
     {
-      "src": "/api/(.*)",
+      "source": "/api/(.*)",
       "dest": "/api/server.js"
     },
     {
