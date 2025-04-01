@@ -5,7 +5,6 @@ import { addRemoveToMyList, isCurrencyInMyList } from "../../helper/local-storag
 
 const CarouselCurrencies = () => {
   const currencies = useSelector((state: RootState) => state.currencies || {});
-  const myList = useSelector((state: RootState) => state.myList || []);
   const dispatch = useDispatch<AppDispatch>();
 
   function handleAddToMyList(e: React.MouseEvent<HTMLButtonElement>, currencyId: string) {
