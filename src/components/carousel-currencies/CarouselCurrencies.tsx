@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
 
-import { addRemoveToMyList, filterMyList } from "../../helper/local-storage/localStorage.helper";
+import { addRemoveToMyList, isCurrencyInMyList } from "../../helper/local-storage/localStorage.helper";
 
 const CarouselCurrencies = () => {
   const currencies = useSelector((state: RootState) => state.currencies || {});
@@ -17,7 +17,7 @@ const CarouselCurrencies = () => {
   return (
     <div className="carousel carousel-start rounded-box gap-10 p-2">
       {currencies.map(currency =>
-        !filterMyList(currency) && <div
+        !isCurrencyInMyList(currency) && <div
           key={currency._id}
           className="carousel-item w-1/4 h-1/4 items-center justify-center bg-base-200 rounded-2xl shadow-accent-content shadow-2xl gap-2 p-2">
           <img
