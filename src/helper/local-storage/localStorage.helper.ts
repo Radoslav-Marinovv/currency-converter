@@ -4,7 +4,7 @@ export const getMyList = (currencies: CurrencyState[]) => {
   const idList = localStorage.getItem('myList');
 
   if (!idList) {
-    return null;
+    return [];
   }
 
   return currencies.filter((currency: CurrencyState) => {
