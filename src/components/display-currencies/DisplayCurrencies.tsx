@@ -7,7 +7,7 @@ import { CurrencyState } from "../../state/currency/currencySlice";
 
 import Loading from "../loading/Loading";
 import NoCurrencies from "../no-currencies/NoCurrencies";
-import { addRemoveToMyList, filterMyList } from "../../helper/local-storage/localStorage.helper";
+import { addRemoveToMyList } from "../../helper/local-storage/localStorage.helper";
 
 type TopTenCurrenciesProps = {
   currencies: CurrencyState[] | null;
@@ -35,8 +35,9 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
       <p className="text-xl text-center">{BASE_CURRENCY_TEXT}{BASE_CURRENCY}</p>
       <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
         {
-          Array.isArray(currencies) && currencies.length > 0 ? currencies.map((currency: CurrencyState) =>
-            filterMyList(currency) && (
+          Array.isArray(currencies) && currencies.length > 0 ?
+            currencies.map((currency: CurrencyState) =>
+            (
               <li
                 key={currency._id}
                 className="grid grid-cols-1 gap-4 md:grid-cols-3 odd:bg-base-200 even:bg-base-100 p-2 m-2 rounded-2xl shadow-accent-content shadow-2xl">
@@ -74,7 +75,7 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
                 </div>
               </li>
             )
-          ) : Array.isArray(currencies) ? <Loading /> : <NoCurrencies />
+            ) : Array.isArray(currencies) ? <Loading /> : <NoCurrencies />
         }
       </ul>
     </section>
