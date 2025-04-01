@@ -14,7 +14,7 @@ export const getMyList = (currencies: CurrencyState[]) => {
   });
 };
 
-export const filterMyList = (currency: CurrencyState) => {
+export const isCurrencyInMyList = (currency: CurrencyState) => {
   const idList = localStorage.getItem('myList') || '';
 
   return idList.includes(currency._id);
