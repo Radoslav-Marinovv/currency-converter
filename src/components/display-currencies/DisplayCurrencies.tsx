@@ -17,7 +17,6 @@ type TopTenCurrenciesProps = {
 const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesProps) => {
 
   const exchangeRates: ExchangeState = useSelector((state: RootState) => state.exchange || {});
-  const myList = useSelector((state: RootState) => state.myList || []);
   const dispatch = useDispatch<AppDispatch>();
 
   function handleValueChange(e: React.ChangeEvent<HTMLInputElement>, id: string) {
