@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const myListSlice = createSlice({
   name: 'myList',
-  initialState: [] as string[],
+  initialState: localStorage.getItem('myList')?.split(',') || [],
   reducers: {
     addToMyList: (state, action: PayloadAction<{ id: string }>) => {
       state.push(action.payload.id);
