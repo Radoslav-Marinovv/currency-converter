@@ -4,8 +4,6 @@ import { RootState } from "../../../state/store";
 import DisplayCurrencies from "../../display-currencies/DisplayCurrencies";
 import CarouselCurrencies from "../../carousel-currencies/CarouselCurrencies";
 
-import { getMyList } from "../../../helper/local-storage/localStorage.helper";
-
 const MyListPage = () => {
   const currencies = useSelector((state: RootState) => state.currencies || {});
   const myList = useSelector((state: RootState) => state.myList || []);
