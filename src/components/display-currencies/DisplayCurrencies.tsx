@@ -60,7 +60,7 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
                 </div>
                 <div className="flex flex-row text-center justify-end items-center gap-6 p-4 text-xl">
                   {exchangeRates[currency._id] ?
-                    `${(exchangeRates[currency._id] / +(currency.exchangeRateToOneUSD.toFixed(4))).toFixed(2)} ${currency.nameShort}` :
+                    `${(exchangeRates[currency._id] * +(currency.exchangeRateToOneUSD.toFixed(4))).toFixed(2)} ${currency.nameShort}` :
                     `0 ${currency.nameShort}`}
                   {removeFromMyList && (
                     <div className="items-center justify-center text-center">
