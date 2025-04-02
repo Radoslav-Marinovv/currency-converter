@@ -30,7 +30,7 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
   }
 
   return (
-    <section className="rounded-2xl shadow-accent-content shadow-2xl min-h-96">
+    <section className="min-w-sm rounded-2xl shadow-accent-content shadow-2xl min-h-96">
       <p className="text-xl text-center">{BASE_CURRENCY_TEXT}{BASE_CURRENCY}</p>
       <ul className="flex flex-col gap-3 align-middle justify-evenly p-2">
         {
@@ -39,45 +39,43 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
             (
               <li
                 key={currency._id}
-                className="grid grid-cols-1 gap-4 md:grid-cols-3 odd:bg-base-200 even:bg-base-100 p-2 m-2 rounded-2xl shadow-accent-content shadow-2xl">
-                <div className="flex flex-row items-center px-2 gap-2">
+                className={`grid grid-cols-1 gap-4 ${removeFromMyList ? "lg:grid-cols-4" : "lg:grid-cols-3"} odd:bg-base-200 even:bg-base-100 p-2 m-2 rounded-2xl shadow-accent-content shadow-2xl`}>
+                <div className="flex flex-row items-center p-2 gap-2 lg:gap-4 justify-center lg:justify-start">
                   <img src={currency.countryFlag} alt={currency.nameFull} className="w-8 h-8" />
                   <span className="text-xl">{currency.nameShort} - {currency.nameFull}:</span>
                   <span className="text-2xl text-accent">{+(currency.exchangeRateToOneUSD.toFixed(4))}</span>
                 </div>
-                <div className="flex flex-col items-center gap-3 p-2">
-                  <label className="text-lg">
-                    {BASE_CURRENCY} to {currency.nameShort}
-                  </label>
+                <div className="flex flex-col items-center justify-center gap-3 p-2">
                   <input
                     type="number"
                     min={0}
+                    max={Number.MAX_VALUE}
                     step={0.01}
-                    placeholder={BASE_CURRENCY}
+                    placeholder={(BASE_CURRENCY + ' to ' + currency.nameShort).toUpperCase()}
                     value={exchangeRates[currency._id] || ''}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleValueChange(e, currency._id)}
-                    className="w-1/3  text-center border rounded-2xl p-4" />
+                    className="w-full text-center border rounded-2xl p-2 lg:p-4" />
                 </div>
-                <div className="flex flex-row text-center justify-end items-center gap-6 p-4 text-xl">
+                <div className="flex flex-row text-center justify-end items-center lg:gap-2 pr-2 text-xl">
                   {exchangeRates[currency._id] ?
                     `${(exchangeRates[currency._id] * +(currency.exchangeRateToOneUSD.toFixed(4))).toFixed(2)} ${currency.nameShort}` :
                     `0 ${currency.nameShort}`}
-                  {removeFromMyList && (
-                    <div className="items-center justify-center text-center">
-                      <button
-                        className="btn btn-error btn-outline btn-sm"
-                        onClick={(e) => { handleRemoveFromMyList(e, currency._id) }}>
-                        Remove from favorites
-                      </button>
-                    </div>
-                  )}
                 </div>
+                {removeFromMyList && (
+                  <div className={`flex flex-row p-2 lg:justify-end items-center  gap-2`}>
+                    <button
+                      className="btn btn-error btn-outline btn-sm min-w-26"
+                      onClick={(e) => { handleRemoveFromMyList(e, currency._id) }}>
+                      Remove from favorites
+                    </button>
+                  </div>
+                )}
               </li>
             )
             ) : Array.isArray(currencies) ? <Loading /> : <NoCurrencies />
         }
       </ul>
-    </section>
+    </section >
   );
 };
 
