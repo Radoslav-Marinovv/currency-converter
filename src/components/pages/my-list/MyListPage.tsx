@@ -16,7 +16,6 @@ const MyListPage = () => {
 
   return (
     <div className="flex flex-col gap-4" >
-      <h1 className="flex flex-col text-3xl p-3">My List</h1>
       <CarouselCurrencies />
       {myListCurrencies.length > 0 ?
         <DisplayCurrencies currencies={myListCurrencies} removeFromMyList /> :

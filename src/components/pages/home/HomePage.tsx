@@ -22,7 +22,6 @@ const HomePage = () => {
       <h1 className="text-4xl text-center">Currency Converter</h1>
       <p className="text-2xl text-warning text-center">NON COMMERCIAL PROJECT - USED FOR EDUCATIONAL PURPOSES ONLY</p>
       <p className="text-2xl text-center">API used:  <Link to={'https://freecurrencyapi.com/'} target="_blank" rel="noopener noreferrer">https://freecurrencyapi.com/</Link></p>
-      <h2 className="flex flex-col text-3xl p-3">Top 10 currencies</h2>
       <DisplayCurrencies currencies={topTenCurrencies} />
     </div >
   )
