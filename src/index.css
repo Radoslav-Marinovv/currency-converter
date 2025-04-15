@@ -13,3 +13,19 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-2685%));
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.carousel-animation {
+  animation: slideOut 60s linear infinite;
+}
