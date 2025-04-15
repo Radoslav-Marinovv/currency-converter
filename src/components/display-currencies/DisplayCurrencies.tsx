@@ -40,9 +40,13 @@ const DisplayCurrencies = ({ currencies, removeFromMyList }: TopTenCurrenciesPro
               <li
                 key={currency._id}
                 className={`grid grid-cols-1 gap-4 ${removeFromMyList ? "lg:grid-cols-4" : "lg:grid-cols-3"} odd:bg-base-200 even:bg-base-100 p-2 m-2 rounded-2xl shadow-accent-content shadow-2xl`}>
-                <div className="flex flex-row items-center p-2 gap-2 lg:gap-4 justify-center lg:justify-start">
-                  <img src={currency.countryFlag} alt={currency.nameFull} className="w-8 h-8" />
-                  <span className="text-xl">{currency.nameShort} - {currency.nameFull}:</span>
+                <div className="flex flex-col items-center p-2 justify-center">
+                  <img
+                    src={currency.countryFlag}
+                    alt={currency.nameFull}
+                    className="w-8 h-8" />
+                  <span className="text-xl">{currency.nameShort}</span>
+                  <span className="text-xl p-2">{currency.nameFull}</span>
                   <span className="text-2xl text-accent">{+(currency.exchangeRateToOneUSD.toFixed(4))}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-3 p-2">
