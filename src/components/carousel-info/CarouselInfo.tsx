@@ -6,11 +6,11 @@ const CarouselInfo = () => {
   const currencies: CurrencyState[] = useSelector((state: RootState) => state.currencies || []);
 
   return (
-    <div className="carousel w-full h-full rounded-3xl min-w-sm gap-2 p-2">
+    <div className="carousel w-full h-full rounded-3xl min-w-sm gap-2 p-2 overflow-x-clip">
       {currencies.map((currency: CurrencyState) => (
         <div
           key={currency._id}
-          className="carousel-item carousel-animation flex-col lg:w-[15%] h-1/4 items-center p-2 bg-base-200 rounded-2xl shadow-accent-content shadow-2xl transform transition-transform -translate-x-full"
+          className="carousel-item carousel-animation w-20 flex-col h-1/4 items-center p-2 bg-base-200 rounded-2xl shadow-accent-content shadow-2xl"
         >
           <img
             draggable
