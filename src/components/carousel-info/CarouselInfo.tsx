@@ -10,7 +10,7 @@ const CarouselInfo = () => {
       {currencies.map((currency: CurrencyState, idx) => (
         <div
           key={currency._id}
-          className={`carousel-animation animation-delay-${idx} w-20 h-fill p-2 items-center bg-base-200 rounded-2xl`}
+          className={`carousel-animation animation-delay-${idx} w-20 h-fill p-2 bg-base-200 rounded-2xl`}
         >
           <img
             draggable
@@ -18,7 +18,6 @@ const CarouselInfo = () => {
             alt={currency.nameFull}
             className="w-8 h-8"
           />
-          <p>{idx + 1}</p>
           <p draggable>{currency.nameShort}</p>
           <p draggable className="text-accent">{currency.exchangeRateToOneUSD.toFixed(4)}</p>
         </div>
