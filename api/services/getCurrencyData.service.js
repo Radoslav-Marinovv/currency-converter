@@ -35,6 +35,14 @@ const getNewCurrencyDataFromAPI = async () => {
 const createMapObjectFromCurrencyData = (currencyData) => {
   return Object.entries(currencyData.data).map(([key, value]) => {
     const flag = key[0].toUpperCase() + key[1].toUpperCase();
+    if (flag === 'EU') {
+      return {
+        nameShort: key,
+        nameFull: CURRENCY_CODES[key] || 'Unknown',
+        exchangeRateToOneUSD: value,
+        countryFlag: `public/assets/europe-flag-icon.svg`,
+      };
+    }
     return {
       nameShort: key,
       nameFull: CURRENCY_CODES[key] || 'Unknown',
