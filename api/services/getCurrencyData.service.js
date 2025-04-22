@@ -40,7 +40,7 @@ const createMapObjectFromCurrencyData = (currencyData) => {
         nameShort: key,
         nameFull: CURRENCY_CODES[key] || 'Unknown',
         exchangeRateToOneUSD: value,
-        countryFlag: `public/assets/europe-flag-icon.svg`,
+        countryFlag: `assets/europe-flag-icon.svg`,
       };
     }
     return {
