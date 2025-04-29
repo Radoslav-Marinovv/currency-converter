@@ -1,50 +1,108 @@
-# React + TypeScript + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single page application - Currency converter
 
-Currently, two official plugins are available:
+Have 33 currencies. Gets new data every 3 hours.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The exchange rates and the names are coming from [https://freecurrencyapi.com/](https://freecurrencyapi.com/) and then stored in MongoDB database.
 
-## Expanding the ESLint configuration
+All currencies on the website are distributed from the MongoDB database to all 3 pages.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Top 10**
 
-- Configure the top-level `parserOptions` property like this:
+      It have two sections
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+        1. Marquee (infinite scrolling list of currencies) on top with all currencies and their current exchange rates.
+
+        2. Top 10 currencies with their exchange rates: Short name, Full name, Country flag, Exchange rate.
+
+**My List**
+
+      You can Add or Remove currencies to favorites list.
+
+      1. Carousel on top that have button to store it to favorites, arrows on each side to navigate.
+
+      2. List of all stored currencies (even if you refresh the page, uses localStorage in your browser).
+
+**All Currencies**
+
+      Presents all currencies that are available.
+
+## Technologies Used
+
+### Back-End
+
+    Express
+    JavaScript
+
+#### Database
+
+    MongoDB
+    Mongoose
+
+### Front-End
+
+    Vite
+    React
+    TypeScript
+    Redux
+
+### CSS Tools
+
+    TailwindCSS
+    DaisyUI
+
+## Project Setup
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Radoslav-Marinovv/currency-converter
+cd currency-converter
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Install dependencies:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. **Run the development server (front-end)**
+
+Open new terminal in / folder and run:
+
+```bash
+npm run dev
+```
+
+4. **Run the development server (back-end)**
+
+Open new terminal in /api folder and run:
+
+```bash
+npm run dev
+```
+
+5. **Build for production:**
+
+You don't need to build the back-end.
+
+Since the front-end is with TypeScript you need to build it first so use the following command.
+
+```bash
+npm run build
+```
+
+5. **Preview the production build:**
+
+```bash
+npm run preview
+```
+
+## Live Demo
+
+Check out the live demo [here](https://currency-converter-brown-rho.vercel.app/).
+
+## Contact
+
+For any questions, please contact Radoslav Marinov at [radoslav.marinov89@gmail.com](mailto:radoslav.marinov89@gmail.com).
